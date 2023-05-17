@@ -36,6 +36,7 @@ game: Optional[Game] = None
 
 def roll1() -> bool:
     global rom_writer
+    print("roll1 initiated")
     try:
         base64_data: str = js.rom_data  # type: ignore
     except AttributeError:
@@ -51,6 +52,7 @@ def roll1() -> bool:
 
 def roll2(params_str: str) -> None:
     global options
+    print("roll2 initiated")
     #print(params_str)
     #params: WebParams = json.loads(params_str)
 
@@ -62,6 +64,7 @@ def roll2(params_str: str) -> None:
 
 def roll3() -> bool:
     global game
+    print("roll3 initiated")
     #assert options
     game = generate()
     return not (game.hint_data is None)
@@ -69,6 +72,7 @@ def roll3() -> bool:
 
 def roll4() -> None:
     # see if hint_data is None to know if it failed
+    print("roll4 initiated")
     if rom_writer and game and game.hint_data:
         rom_name = write_rom(game, rom_writer)
         js.modified_rom_data = rom_writer.getBase64RomData().decode()
