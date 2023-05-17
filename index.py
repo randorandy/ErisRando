@@ -62,8 +62,8 @@ def roll2(params_str: str) -> None:
 
 def roll3() -> bool:
     global game
-    assert options
-    game = generate(options)
+    #assert options
+    game = generate()
     return not (game.hint_data is None)
 
 
