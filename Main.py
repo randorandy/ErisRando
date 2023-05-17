@@ -77,7 +77,7 @@ def Main(argv: list[str], romWriter: Optional[RomWriter] = None) -> None:
 
     if romWriter is None :
         romWriter = RomWriter.fromFilePaths(
-            origRomPath=rom_clean_path, newRomPath=rom1_path)
+            origRomPath=rom_clean_path)
     else :
         # remove .sfc extension and dirs
         romWriter.setBaseFilename(rom1_path[:-4].split("/")[-1])
@@ -135,7 +135,7 @@ def Main(argv: list[str], romWriter: Optional[RomWriter] = None) -> None:
 
     # Suit animation skip patch
     romWriter.writeBytes(0x20717, b"\xea\xea\xea\xea")
-    romWriter.finalizeRom()
+    romWriter.finalizeRom(rom1_path)
     print("Done!")
     print(f"Filename is {rom_name}")
     with open(f"spoilers/{rom_name}.spoiler.txt", "w") as spoiler_file:
