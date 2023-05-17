@@ -90,22 +90,7 @@ function setup_roll_button() {
                 activated_trick_names.push(trick_name);
             }
         }
-        const area_rando_box = document.getElementById("area-rando");
-        const small_spaceport_box = document.getElementById("small-spaceport");
-        const escape_shortcuts_box = document.getElementById("escape-shortcuts");
-        const fill_select = document.getElementById("fill");
-        const daphne_box = document.getElementById("daphne-gate");
-        const cypher_select = document.getElementById("cypher");
 
-        const params = {
-            "area_rando": area_rando_box.checked,
-            "small_spaceport": small_spaceport_box.checked,
-            "escape_shortcuts": escape_shortcuts_box.checked,
-            "fill": fill_select.value,
-            "cypher": cypher_select.value,
-            "tricks": activated_trick_names,
-            "daphne_gate": daphne_box.checked
-        };
         roll_button.disabled = true;
         const status_div = document.getElementById("status");
         status_div.innerText = "rolling...";
