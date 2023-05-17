@@ -30,7 +30,7 @@ class WebParams(TypedDict):
 
 # global state between roll functions
 rom_writer: Optional[RomWriter] = None
-#options: Optional[GameOptions] = None
+options  = None
 game: Optional[Game] = None
 
 
