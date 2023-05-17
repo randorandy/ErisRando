@@ -77,7 +77,3 @@ def roll4() -> None:
         js.spoiler_text = get_spoiler(game)
     else:
         js.modified_rom_data = ""
-
-
-populate_tricks()
-populate_presets()
