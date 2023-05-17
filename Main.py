@@ -77,7 +77,7 @@ def generate() -> Game:
     
     seedComplete = False
     randomizeAttempts = 0
-    game = Game(Expert if logicChoice == "E" else Casual,
+    game = Game(Expert,
                 csvdict,
                 areaA == "A",
                 VanillaAreas(),
