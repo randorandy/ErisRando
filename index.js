@@ -82,13 +82,6 @@ function setup_roll_button() {
     const roll_button = document.getElementById("roll-button");
     roll_button.addEventListener("click", async () => {
         const activated_trick_names = [];
-        const tricks_table = document.getElementById("tricks");
-        for (const row of tricks_table.firstChild.children) {
-            const checkbox = row.firstChild.firstChild;
-            const trick_name = row.children[1].firstChild.innerText
-            if (checkbox.checked) {
-                activated_trick_names.push(trick_name);
-            }
         }
 
         roll_button.disabled = true;
