@@ -82,7 +82,6 @@ function setup_roll_button() {
     console.log("   -------  setup_roll_button");
     const roll_button = document.getElementById("roll-button");
     roll_button.addEventListener("click", async () => {
-        console.log("roll button clicked");
         const activated_trick_names = [];
 
         roll_button.disabled = true;
@@ -90,7 +89,7 @@ function setup_roll_button() {
         status_div.innerText = "rolling...";
         await sleep(0.01);
         const python_roll1_function = pyscript.interpreter.globals.get('roll1');
-        const python_roll2_function = pyscript.interpreter.globals.get('roll2');
+        //const python_roll2_function = pyscript.interpreter.globals.get('roll2');
         const python_roll3_function = pyscript.interpreter.globals.get('roll3');
         const python_roll4_function = pyscript.interpreter.globals.get('roll4');
         const roll1_success = python_roll1_function();
