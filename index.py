@@ -73,7 +73,7 @@ def roll3() -> bool:
 def roll4() -> None:
     # see if hint_data is None to know if it failed
     print("roll4 initiated")
-    if rom_writer and game and game.hint_data:
+    if rom_writer and game :
         rom_name = write_rom(game, rom_writer)
         js.modified_rom_data = rom_writer.getBase64RomData().decode()
         js.rom_name = rom_name
