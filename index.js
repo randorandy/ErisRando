@@ -81,6 +81,7 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
 function setup_roll_button() {
     const roll_button = document.getElementById("roll-button");
     roll_button.addEventListener("click", async () => {
+        console.log("you clicked it");
         const activated_trick_names = [];
 
         roll_button.disabled = true;
