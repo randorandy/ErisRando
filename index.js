@@ -79,10 +79,11 @@ const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
 }
 
 function setup_roll_button() {
+    console.log("   -------  setup_roll_button");
     const roll_button = document.getElementById("roll-button");
     roll_button.addEventListener("click", async () => {
+        console.log("roll button clicked");
         const activated_trick_names = [];
-        }
 
         roll_button.disabled = true;
         const status_div = document.getElementById("status");
@@ -99,8 +100,8 @@ function setup_roll_button() {
             roll_button.disabled = false;
             return;
         }
-        await sleep(0.01)
-        python_roll2_function(JSON.stringify(params));
+        // await sleep(0.01)
+        // python_roll2_function(JSON.stringify(params));
         await sleep(0.01)
         const roll3_success = python_roll3_function();
         if (! roll3_success) {
@@ -157,7 +158,7 @@ function setup_roll_button() {
 }
 
 window.addEventListener("load", (event) => {
-    setup_collapsible();
+    // setup_collapsible();
     // const trick_promise = populate_tricks();
     // populate_presets(trick_promise);
     setup_roll_button();

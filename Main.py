@@ -87,7 +87,7 @@ def generate() -> Game:
             game.connections = areaRando.RandomizeAreas()
             # print(Connections) #test
         randomizeAttempts += 1
-        if randomizeAttempts > 1000 :
+        if randomizeAttempts > 10:
             print("Giving up after 1000 attempts. Help?")
             break
         print("Starting randomization attempt:", randomizeAttempts)
