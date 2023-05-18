@@ -1,24 +1,4 @@
 // moved to pyscript
-function setup_collapsible() {
-    console.log("setup collapsible");
-    const coll = document.getElementById("collapse-control");
-    const trick_container = document.getElementById("trick-container");
-    trick_container.style.maxHeight = "0px";
-    trick_container.style.overflowY = "hidden";
-    trick_container.style.transition = "max-height 0.2s ease-out";
-
-    coll.addEventListener("click", () => {
-        console.log(trick_container.style.maxHeight);
-        console.log(trick_container.scrollHeight);
-        if (trick_container.style.maxHeight !== "0px") {
-            trick_container.style.maxHeight = "0px";
-            trick_container.style.overflowY = "hidden";
-        } else {
-            trick_container.style.maxHeight = "400px";
-            trick_container.style.overflowY = "auto";
-        }
-    });
-}
 
 async function sleep(seconds) {
     return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
