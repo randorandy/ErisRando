@@ -157,7 +157,7 @@ function setup_roll_button() {
 }
 
 window.addEventListener("load", (event) => {
-    setup_collapsible();
+    // setup_collapsible();
     // const trick_promise = populate_tricks();
     // populate_presets(trick_promise);
     setup_roll_button();
