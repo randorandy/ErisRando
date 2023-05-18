@@ -89,7 +89,7 @@ function setup_roll_button() {
         status_div.innerText = "rolling...";
         await sleep(0.01);
         const python_roll1_function = pyscript.interpreter.globals.get('roll1');
-        const python_roll2_function = pyscript.interpreter.globals.get('roll2');
+        //const python_roll2_function = pyscript.interpreter.globals.get('roll2');
         const python_roll3_function = pyscript.interpreter.globals.get('roll3');
         const python_roll4_function = pyscript.interpreter.globals.get('roll4');
         const roll1_success = python_roll1_function();
@@ -100,7 +100,7 @@ function setup_roll_button() {
             return;
         }
         await sleep(0.01)
-        python_roll2_function(JSON.stringify(params));
+        //python_roll2_function(JSON.stringify(params));
         await sleep(0.01)
         const roll3_success = python_roll3_function();
         if (! roll3_success) {
