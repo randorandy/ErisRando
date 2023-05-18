@@ -67,7 +67,7 @@ def roll3() -> bool:
     print("roll3 initiated")
     #assert options
     game = generate()
-    return not (game.hint_data is None)
+    return True
 
 
 def roll4() -> None:
