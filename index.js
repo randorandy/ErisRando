@@ -82,7 +82,6 @@ function setup_roll_button() {
     const roll_button = document.getElementById("roll-button");
     roll_button.addEventListener("click", async () => {
         const activated_trick_names = [];
-        }
 
         roll_button.disabled = true;
         const status_div = document.getElementById("status");
