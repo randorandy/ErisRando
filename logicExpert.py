@@ -477,8 +477,8 @@ location_logic: LocationLogicType = {
         (SpeedBooster in loadout)
     ),
     "Grapple": lambda loadout: (
-        (canBomb in loadout)
-        #Grapple to escape
+        (canBomb in loadout) and
+        (Grapple in loadout)
     ),
     "Phazon Gardens Super": lambda loadout: (
         (phazon in loadout) and
