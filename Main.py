@@ -5,7 +5,7 @@ import argparse
 
 from connection_data import SunkenNestL, VanillaAreas
 from fillInterface import FillAlgorithm
-from game import Game
+from game import Game, GameOptions
 from item_data import Item, Items, items_unpackable
 from loadout import Loadout
 from location_data import Location, pullCSV, spacePortLocs
@@ -54,11 +54,12 @@ fillers: dict[str, Type[FillAlgorithm]] = {
 
 # main program
 def Main(argv: list[str], romWriter: Optional[RomWriter] = None) -> None:
-    game = generate()
+    options = GameOptions(False)
+    game = generate(options)
     rom_name = write_rom(game)
     write_spoiler_file(game, rom_name)
 
-def generate() -> Game:
+def generate(options: GameOptions) -> Game:
     logicChoice = "E"
     fillChoice = "D"
     areaA = ""
@@ -79,13 +80,10 @@ def generate() -> Game:
     randomizeAttempts = 0
     game = Game(Expert,
                 csvdict,
-                areaA == "A",
+                options.visibility,
                 VanillaAreas(),
                 seeeed)
     while not seedComplete :
-        if game.area_rando:  # area rando
-            game.connections = areaRando.RandomizeAreas()
-            # print(Connections) #test
         randomizeAttempts += 1
         if randomizeAttempts > 10:
             print("Giving up after 1000 attempts. Help?")
