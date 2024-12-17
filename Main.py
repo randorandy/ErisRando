@@ -17,16 +17,19 @@ from romWriter import RomWriter
 from solver import solve
 
 
-def plmidFromHiddenness(itemArray, hiddenness) -> bytes:
+
+def plmidFromHiddenness(itemArray, hiddenness, visible = True) -> bytes:
     if hiddenness == "open":
         plmid = itemArray[1]
     elif hiddenness == "chozo":
         plmid = itemArray[2]
     else:
         plmid = itemArray[3]
+    if visible:
+        plmid = itemArray[1]
     return plmid
 
-def write_location(romWriter: RomWriter, location: Location) -> None:
+def write_location(romWriter: RomWriter, location: Location, visible = True) -> None:
     """
     provide a location with an ['item'] value, such as Missile, Super, etc
     write all rom locations associated with the item location
@@ -34,7 +37,7 @@ def write_location(romWriter: RomWriter, location: Location) -> None:
     item = location["item"]
     assert item, f"{location['fullitemname']} didn't get an item"
     # TODO: support locations with no items?
-    plmid = plmidFromHiddenness(item, location['hiddenness'])
+    plmid = plmidFromHiddenness(item, location['hiddenness'], visible)
     for address in location['locids']:
         romWriter.writeItem(address, plmid, item[4])
     for address in location['alternateroomlocids']:
@@ -43,7 +46,7 @@ def write_location(romWriter: RomWriter, location: Location) -> None:
             # as the corresponding "pre-item-move" item had
             plmid_altroom = plmid
         else:
-            plmid_altroom = plmidFromHiddenness(item, location['alternateroomdifferenthiddenness'])
+            plmid_altroom = plmidFromHiddenness(item, location['alternateroomdifferenthiddenness'], visible)
         romWriter.writeItem(address, plmid_altroom, item[4])
 
 
